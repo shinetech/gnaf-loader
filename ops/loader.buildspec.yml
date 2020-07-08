@@ -18,8 +18,8 @@ phases:
       - ./download.sh
       - >
         docker-compose up \
-        -e RDS_ENDPOINT=$RDS_ENDPOINT
-        -e RDS_ENDPOINT_PORT=$RDS_ENDPOINT_PORT
-        -e RDS_DB_NAME=$RDS_DB_NAME
-        -e RDS_DB_USER=$RDS_DB_USER
+        -e RDS_ENDPOINT=$RDS_ENDPOINT \
+        -e RDS_ENDPOINT_PORT=$RDS_ENDPOINT_PORT \
+        -e RDS_DB_NAME=$RDS_DB_NAME \
+        -e RDS_DB_USER=$RDS_DB_USER \
         -e RDS_DB_PWD=$RDS_DB_PWD
