@@ -1,0 +1,24 @@
+version: 0.2
+
+env:
+  git-credential-helper: yes
+  variables:
+    GITHUB_USERNAME: energetiq-codebuild
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+  pre_build:
+    commands:
+      - chmod +x ./download.sh
+      - ./download.sh
+  build:
+    commands:
+      - >
+        docker-compose up \
+        -e RDS_ENDPOINT=$RDS_ENDPOINT
+        -e RDS_ENDPOINT_$PORT=RDS_ENDPOINT_PORT
+        -e RDS_DB_NAME=$RDS_DB_NAME
+        -e RDS_DB_USER=$RDS_DB_USER
+        -e RDS_DB_PWD=$RDS_DB_PWD
