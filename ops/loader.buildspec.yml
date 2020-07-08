@@ -12,9 +12,9 @@ phases:
   pre_build:
     commands:
       - chmod +x ./download.sh
-      - ./download.sh
   build:
     commands:
+      - ./download.sh
       - >
         docker-compose up \
         -e RDS_ENDPOINT=$RDS_ENDPOINT
