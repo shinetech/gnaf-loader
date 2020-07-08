@@ -11,6 +11,7 @@ phases:
       python: 3.7
   pre_build:
     commands:
+      - mkdir ./data
       - chmod +x ./download.sh
   build:
     commands:
