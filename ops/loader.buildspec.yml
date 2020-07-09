@@ -18,4 +18,4 @@ phases:
     commands:
       - ./download.sh
       - ./install.sh
-      - PGPASSWORD=postgres psql -h db -d geo -p 5432 -U postgres -l
+      - PGPASSWORD=postgres psql -h "$RDS_ENDPOINT" -d geo -p "$RDS_ENDPOINT_PORT" -U postgres -l
