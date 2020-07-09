@@ -37,6 +37,8 @@ from datetime import datetime
 
 
 def main():
+    logger.info("Main started")
+
     full_start_time = datetime.now()
 
     # set command line arguments
@@ -44,6 +46,9 @@ def main():
 
     # get settings from arguments
     settings = get_settings(args)
+
+    logger.info("Settings: ")
+    logger.info(settings['pg_connect_string'])
 
     # connect to Postgres
     try:
@@ -55,12 +60,16 @@ def main():
     pg_conn.autocommit = True
     pg_cur = pg_conn.cursor()
 
+    logger.info("Postgres is executing")
+
     # add postgis to database (in the public schema) - run this in a try to confirm db user has privileges
     try:
         pg_cur.execute("SET search_path = public, pg_catalog; CREATE EXTENSION IF NOT EXISTS postgis")
     except psycopg2.Error:
         logger.fatal("Unable to add PostGIS extension\nACTION: Check your Postgres user privileges or PostGIS install")
         return False
+
+    logger.info("Postgres is executed!")
 
     # test if ST_SubDivide exists (only in PostGIS 2.2+). It's used to split boundaries for faster processing
     psma.check_postgis_version(pg_cur, settings, logger)

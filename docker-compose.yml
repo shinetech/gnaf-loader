@@ -5,23 +5,23 @@ data:
     - ./data:/data
 
 # shares volume with other images so we can use COPY
-db:
-  image: mdillon/postgis:11
-  environment:
-    - POSTGRES_USER=gnaf
-    - POSTGRES_PASSWORD=gnaf
-  volumes_from:
-    - data
-  ports:
-    - "5432:5432"
-  command: postgres -c "max_wal_size=4GB" -c "work_mem=4GB"
+#db:
+#  image: mdillon/postgis:11
+#  environment:
+#    - POSTGRES_USER=gnaf
+#    - POSTGRES_PASSWORD=gnaf
+#  volumes_from:
+#    - data
+#  ports:
+#    - "5432:5432"
+#  command: postgres -c "max_wal_size=4GB" -c "work_mem=4GB"
 
 loader:
   build: .
   volumes_from:
     - data
-  links:
-    - db
+#  links:
+#    - db
   environment:
     - PGHOST=$RDS_ENDPOINT
     - PGPORT=$RDS_ENDPOINT_PORT
