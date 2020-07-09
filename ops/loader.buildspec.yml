@@ -13,7 +13,9 @@ phases:
     commands:
       - mkdir ./data
       - chmod +x ./download.sh
+      - chmod +x ./install.sh
   build:
     commands:
       - ./download.sh
-      - docker-compose up
+      - ./install.sh
+      - PGPASSWORD=postgres psql -h db -d geo -p 5432 -U postgres -l

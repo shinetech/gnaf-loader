@@ -20,12 +20,18 @@ Resources:
         Type: LINUX_CONTAINER
         PrivilegedMode: true
         EnvironmentVariables:
-          - Name: GNAF_DOWNLOAD_URL
+          - Name: GNAF_DUMP_URL
             Type: PLAINTEXT
-            Value: https://data.gov.au/data/dataset/19432f89-dc3a-4ef3-b943-5326ef1dbecc/resource/4b084096-65e4-4c8e-abbe-5e54ff85f42f/download/may20_gnaf_pipeseparatedvalue.zip
-          - Name: ADMIN_BDYS_DOWNLOAD_URL
+            Value: http://minus34.com/opendata/psma-202005/gnaf-202005.dmp
+          - Name: ADMIN_BDYS_DUMP_URL
             Type: PLAINTEXT
-            Value: https://data.gov.au/data/dataset/bdcf5b09-89bc-47ec-9281-6b8e9ee147aa/resource/53c24b8e-4f55-4eed-a189-2fc0dcca6381/download/may20_adminbounds_esrishapefileordbffile.zip
+            Value: http://minus34.com/opendata/psma-202005/admin-bdys-202005.dmp
+          - Name: POSTGRES_PACKAGE_URL
+            Type: PLAINTEXT
+            Value: http://ftp.postgresql.org/pub/source/v11.7/postgresql-11.7.tar.gz
+          - Name: POSTGIST_PACKAGE_URL
+            Type: PLAINTEXT
+            Value: http://download.osgeo.org/postgis/source/postgis-2.5.4.tar.gz
           - Name: RDS_ENDPOINT
             Type: PLAINTEXT
             Value: nmi-geolocation-geo-test.c3ofafl582h0.ap-southeast-2.rds.amazonaws.com
