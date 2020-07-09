@@ -26,4 +26,4 @@ psql -l
 #echo "** Dumping GNAF **"
 #pg_dump -Fc -n gnaf_202005 -f "/data/gnaf-202005.dmp" --no-owner
 
-pg_restore --clean --no-acl --no-owner /data/gnaf-202005.dmp
+pg_restore -Fc -d geo -p 5432 -U postgres /data/gnaf-202005.dmp

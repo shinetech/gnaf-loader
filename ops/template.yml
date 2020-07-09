@@ -15,7 +15,7 @@ Resources:
       Artifacts:
         Type: NO_ARTIFACTS
       Environment:
-        ComputeType: BUILD_GENERAL1_MEDIUM
+        ComputeType: BUILD_GENERAL1_SMALL
         Image: aws/codebuild/amazonlinux2-x86_64-standard:3.0
         Type: LINUX_CONTAINER
         PrivilegedMode: true
@@ -28,19 +28,19 @@ Resources:
             Value: https://data.gov.au/data/dataset/bdcf5b09-89bc-47ec-9281-6b8e9ee147aa/resource/53c24b8e-4f55-4eed-a189-2fc0dcca6381/download/may20_adminbounds_esrishapefileordbffile.zip
           - Name: RDS_ENDPOINT
             Type: PLAINTEXT
-            Value: nmi-geolocation-sdr-test.c3ofafl582h0.ap-southeast-2.rds.amazonaws.com
+            Value: nmi-geolocation-geo-test.c3ofafl582h0.ap-southeast-2.rds.amazonaws.com
           - Name: RDS_ENDPOINT_PORT
             Type: PLAINTEXT
             Value: 5432
           - Name: RDS_DB_NAME
             Type: PLAINTEXT
-            Value: geolocation_test
+            Value: geo
           - Name: RDS_DB_USER
             Type: PLAINTEXT
-            Value: test_user
+            Value: postgres
           - Name: RDS_DB_PWD
             Type: PLAINTEXT
-            Value: test_pwd
+            Value: postgres
       Name: nmi-geolocation-gnaf-loader
       Description: "Run GNAF loader to generate pg dumps and import to nmi-geolocation db instance"
       QueuedTimeoutInMinutes: 60
