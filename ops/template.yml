@@ -25,9 +25,10 @@ Resources:
             Value: http://minus34.com/opendata/psma-202005/gnaf-202005.dmp
           - Name: ADMIN_BDYS_DUMP_URL
             Type: PLAINTEXT
+            Value: ""
           - Name: RDS_ENDPOINT
             Type: PLAINTEXT
-            Value: nmi-geolocation-geo-test.c3ofafl582h0.ap-southeast-2.rds.amazonaws.com
+            Value: ""
           - Name: RDS_ENDPOINT_PORT
             Type: PLAINTEXT
             Value: 5432
@@ -36,9 +37,10 @@ Resources:
             Value: geo
           - Name: RDS_DB_USER
             Type: PLAINTEXT
-            Value: postgres
+            Value: ""
           - Name: RDS_DB_PWD
             Type: PLAINTEXT
+            Value: ""
       Name: nmi-geolocation-gnaf-loader
       Description: "Run GNAF loader to generate pg dumps and import to nmi-geolocation db instance"
       QueuedTimeoutInMinutes: 60
@@ -48,7 +50,7 @@ Resources:
         GitCloneDepth: 1
         Location: https://github.com/shinetech/gnaf-loader.git
         BuildSpec: ops/loader.buildspec.yml
-      SourceVersion: refs/pull/1/head
+      SourceVersion: master
       TimeoutInMinutes: 300
       VpcConfig:
         SecurityGroupIds: !Ref VpcSecurityGroupIds
