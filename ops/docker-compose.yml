@@ -9,6 +9,8 @@ import:
   volumes_from:
     - data
   environment:
+    - GNAF_DUMP_URL=$GNAF_DUMP_URL
+    - ADMIN_BDYS_DUMP_URL=$ADMIN_BDYS_DUMP_URL
     - PGHOST=$RDS_ENDPOINT
     - PGPORT=$RDS_ENDPOINT_PORT
     - PGDATABASE=$RDS_DB_NAME
