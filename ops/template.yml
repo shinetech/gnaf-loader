@@ -26,12 +26,6 @@ Resources:
           - Name: ADMIN_BDYS_DUMP_URL
             Type: PLAINTEXT
             Value: http://minus34.com/opendata/psma-202005/admin-bdys-202005.dmp
-          - Name: POSTGRES_PACKAGE_URL
-            Type: PLAINTEXT
-            Value: http://ftp.postgresql.org/pub/source/v11.7/postgresql-11.7.tar.gz
-          - Name: POSTGIST_PACKAGE_URL
-            Type: PLAINTEXT
-            Value: http://download.osgeo.org/postgis/source/postgis-2.5.4.tar.gz
           - Name: RDS_ENDPOINT
             Type: PLAINTEXT
             Value: nmi-geolocation-geo-test.c3ofafl582h0.ap-southeast-2.rds.amazonaws.com

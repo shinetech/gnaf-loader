@@ -1,0 +1,16 @@
+data:
+  image: mdillon/postgis:11
+  volumes:
+    - ./:/app
+    - ./data:/data
+
+import:
+  build: .
+  volumes_from:
+    - data
+  environment:
+    - PGHOST=$RDS_ENDPOINT
+    - PGPORT=$RDS_ENDPOINT_PORT
+    - PGDATABASE=$RDS_DB_NAME
+    - PGUSER=$RDS_DB_USER
+    - PGPASSWORD=$RDS_DB_PWD

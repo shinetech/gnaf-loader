@@ -6,16 +6,10 @@ env:
     GITHUB_USERNAME: energetiq-codebuild
 
 phases:
-  install:
-    runtime-versions:
-      python: 3.7
   pre_build:
     commands:
-      - mkdir ./data
-      - chmod +x ./download.sh
-      - chmod +x ./install.sh
+      - mkdir ./ops/data
   build:
     commands:
-      - ./download.sh
-      - ./install.sh
-      - PGPASSWORD=postgres psql -h "$RDS_ENDPOINT" -d geo -p "$RDS_ENDPOINT_PORT" -U postgres -l
+      - cd ./ops
+      - docker-compose up
