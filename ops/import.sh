@@ -13,13 +13,15 @@ psql -l
 if [ ! "$GNAF_DUMP_URL" = "" ]; then
   echo "** Now downloading GNAF dump **"
   curl --url "$GNAF_DUMP_URL" --output ./data/GNAP.dump
+  aws s3 cp ./data/GNAP.dump s3://energetiq-gnaf-dumps
   echo "** Now importing GNAF dump into RDS **"
-  pg_restore -Fc ./data/GNAP.dmp
+  pg_restore -Fc -f ./data/GNAP.dmp
 fi
 
 if [ ! "$ADMIN_BDYS_DUMP_URL" = "" ]; then
   echo "** Now downloading ADMIN_BDYS dump **"
   curl --url "$ADMIN_BDYS_DUMP_URL" --output ./data/ADMIN_BDYS.dump
+  aws s3 cp ./data/ADMIN_BDYS.dump s3://energetiq-gnaf-dumps
   echo "** Now importing ADMIN_BDYS dump into RDS **"
-  pg_restore -Fc ./data/ADMIN_BDYS.dmp
+  pg_restore -Fc -f ./data/ADMIN_BDYS.dmp
 fi
