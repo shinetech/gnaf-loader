@@ -14,12 +14,12 @@ if [ ! "$GNAF_DUMP_URL" = "" ]; then
   echo "** Now downloading GNAF dump **"
   curl --url "$GNAF_DUMP_URL" --output ./data/GNAP.dump
   echo "** Now importing GNAF dump into RDS **"
-  psql pg_restore -Fc ./data/GNAP.dmp
+  PGPASSWORD=$PGPASSWORD psql pg_restore -Fc ./data/GNAP.dmp
 fi
 
 if [ ! "$ADMIN_BDYS_DUMP_URL" = "" ]; then
   echo "** Now downloading ADMIN_BDYS dump **"
   curl --url "$ADMIN_BDYS_DUMP_URL" --output ./data/ADMIN_BDYS.dump
   echo "** Now importing ADMIN_BDYS dump into RDS **"
-  psql pg_restore -Fc ./data/ADMIN_BDYS.dmp
+  PGPASSWORD=$PGPASSWORD psql pg_restore -Fc ./data/ADMIN_BDYS.dmp
 fi
