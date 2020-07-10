@@ -25,7 +25,6 @@ Resources:
             Value: http://minus34.com/opendata/psma-202005/gnaf-202005.dmp
           - Name: ADMIN_BDYS_DUMP_URL
             Type: PLAINTEXT
-            Value: http://minus34.com/opendata/psma-202005/admin-bdys-202005.dmp
           - Name: RDS_ENDPOINT
             Type: PLAINTEXT
             Value: nmi-geolocation-geo-test.c3ofafl582h0.ap-southeast-2.rds.amazonaws.com
@@ -40,7 +39,6 @@ Resources:
             Value: postgres
           - Name: RDS_DB_PWD
             Type: PLAINTEXT
-            Value: postgres
       Name: nmi-geolocation-gnaf-loader
       Description: "Run GNAF loader to generate pg dumps and import to nmi-geolocation db instance"
       QueuedTimeoutInMinutes: 60
