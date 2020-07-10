@@ -27,20 +27,20 @@ Resources:
             Type: PLAINTEXT
             Value: ""
           - Name: RDS_ENDPOINT
-            Type: PLAINTEXT
-            Value: ""
+            Type: SECRETS_MANAGER
+            Value: "/:host"
           - Name: RDS_ENDPOINT_PORT
-            Type: PLAINTEXT
-            Value: 5432
+            Type: SECRETS_MANAGER
+            Value: "/:port"
           - Name: RDS_DB_NAME
-            Type: PLAINTEXT
-            Value: geo
+            Type: SECRETS_MANAGER
+            Value: "/:dbname"
           - Name: RDS_DB_USER
-            Type: PLAINTEXT
-            Value: ""
+            Type: SECRETS_MANAGER
+            Value: "/:username"
           - Name: RDS_DB_PWD
-            Type: PLAINTEXT
-            Value: ""
+            Type: SECRETS_MANAGER
+            Value: "/:password"
       Name: nmi-geolocation-gnaf-loader
       Description: "Run GNAF loader to generate pg dumps and import to nmi-geolocation db instance"
       QueuedTimeoutInMinutes: 60
