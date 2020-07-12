@@ -10,10 +10,10 @@ done
 echo "** Database connection is ready to use **"
 psql -l
 
-REQUIRE_EXTENSIONS_COUNT=4
+REQUIRE_EXTENSIONS_COUNT=3
 EXTENSIONS=$(psql -d "$PGDATABASE" -p "$PGPORT" -U "$PGUSER" -c "\dx")
 echo "$EXTENSIONS";
-CHECK_EXTENSION=$(echo "$EXTENSIONS" | grep -E 'postgis|fuzzystrmatch|postgis_tiger_geocoder|postgis_topology' -c)
+CHECK_EXTENSION=$(echo "$EXTENSIONS" | grep -E 'postgis|fuzzystrmatch|postgis_topology' -c)
 
 echo "Found $CHECK_EXTENSION/$REQUIRE_EXTENSIONS_COUNT required extension(s) installed!"
 

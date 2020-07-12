@@ -2,5 +2,7 @@
 .vscode/
 .sublime/
 data/*
-ops/data/*
+ops/data/
 *.log
+.DS_Store
+__pycache__/
